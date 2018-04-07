@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block headcontent %}
+    <link rel="stylesheet" href="{% static 'MeetMyExpert/css/index.css' %}">
+
+{% endblock %}
+
+{% block content %}
+     <!--first div with motto-->
+    <div class="container-fluid mb-0 header_mid bg-primary text-light">
+        <div style="margin-top: 275px">
+        <h2 class="mx-auto" style="max-width:800px;"><strong>BOOK FREE/PAID CONSULTATION WITH EXPERTS</strong></h2>
+        <h3  class="mx-auto text-white" style="max-width:500px">privacy and expert verification guarenteed</h3>
+
+            <div class="mx-auto" style="max-width:450px">
+                <input type="search" class="text-dark form-control" placeholder="Search name,place etc." style="width:60%;display: inline">
+                <button type="submit" class="btn btn-success " >FIND EXPERT</button>
+            </div>
+
+        </div>
+    </div>
+
+        <!-- bottom and last header-->
+    <div class="bottomHeader container-fluid ">
+        <div class="row  text-light py-1">
+            <div class="col-md-3 mx-auto">
+                {% if user.is_authenticated %}
+                     <a href="{% url 'welcome' %}" class="text-light"><h4><i class="glyphicon glyphicon-home"></i>HOME</h4></a>
+                {% else %}
+                     <a href="{% url 'home' %}" class="text-light"><h4><i class="glyphicon glyphicon-home"></i>HOME</h4></a>
+                {% endif %}
+
+            </div>
+            <div class="col-md-3 mx-auto">
+                <a href="{% url 'experts:expertslistpage' %}" class="text-light"><h4><i class="glyphicon glyphicon-user"></i>FIND AN EXPERT </h4></a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-education"></i>BECOME AN EXPERT</h4>
+                </a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <span><h4><i class="glyphicon glyphicon-search"></i><input type="search" class="text-dark form-control ml-2" placeholder="SEARCH"
+                style="width:90%;display: inline"></h4></span>
+            </div>
+        </div>
+    </div>
+
+    <!--bottom header for small screen-->
+        <div class="container-fluid px-0">
+            <table class="bottomHeaderSm mx-0">
+                <tr>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-home "></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-user "></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-education"></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-search"></i></h2></a></td>
+                </tr>
+            </table>
+        </div>
+
+    <!-- second div showing features-->
+    <div class="container-fluid " style="background-color: #f1f1f1">
+        <div class="container">
+            <div class="row" style="margin-top: 50px; margin-bottom:50px;" >
+                <div class="col-md-5 pb-3">
+                    <img src="http://cdn.apk-cloud.com/detail/screenshot/6Z59NeaX0tZQWxquYlUV_IsVwcErtegFcSCtzPjDLRKOYHuoQ37zD0l_1hfNISFJDcBA=h900.png" alt="chat-img"
+                    class="img-responsive" height="400px" width="200px" >
+                </div>
+                <div class="col-md-7 text-dark">
+                    <h2><strong>Forget the waiting room<br>
+                        Consult Online.</strong></h2>
+                    <h4>
+                        <ul style="list-style-type: none">
+                          <li> <i class="glyphicon glyphicon-ok"></i> Free/paid consulting with experts</li>
+                          <li> <i class="glyphicon glyphicon-ok"></i> 100% private and confidential</li>
+                          <li> <i class="glyphicon glyphicon-ok"></i> Qualification of experts verified</li>
+                          <li> <i class="glyphicon glyphicon-ok"></i> Suggestion by expert in pdf format</li>
+                          <li> <i class="glyphicon glyphicon-ok"></i> Added voice+video chat in App</li>
+                        </ul>
+                    </h4>
+                    <button type="submit" class="btn btn-success "><a href="{% url 'experts:expertslistpage' %}">CONSULT NOW</a></button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- third div regarding articles from experts-->
+    <div class="jumbotron  mb-0 bg-primary pt-2 ">
+        <h2 class="text-center text-light"><strong>Read top article from experts and stay updated</strong></h2>
+
+
+        <!--using carousel-->
+        <div id="card" class="carousel slide" data-ride="carousel" data-interval="0" >
+
+            <!--dots below the image for navigation-->
+            <ul class="carousel-indicators ">
+                <li data-target="#card" data-slide-to="0" class="active bg-secondary"></li>
+                <li data-target="#card" data-slide-to="1" class="bg-secondary"></li>
+                <li data-target="#card" data-slide-to="2" class="bg-secondary"></li>
+            </ul>
+
+
+            <!--data to be displayed in card form-->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                       <div class="card col-xs-12 col-md-12" >
+                           <img class="card-img-top" src="https://cdn.wallpapersafari.com/8/39/50Fdz7.jpg"
+                               height=250px; alt="abc">
+                           <div class="card-body">
+                               <h3 class="card-title">Are you a Heart patient? </h3>
+                               <p class="card-text">You need not to worry because we have the solution for your problem.so you are on right track.<a href="#">click here</a></p>
+                           </div>
+                       </div>
+
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                       <div class="card col-xs-12 col-md-12" >
+                           <img class="card-img-top" src="https://cdn.wallpapersafari.com/8/39/50Fdz7.jpg"
+                               height=250px; alt="abc">
+                           <div class="card-body">
+                               <h3 class="card-title">Are you a Heart patient? </h3>
+                               <p class="card-text">You need not to worry because we have the solution for your problem.so you are on right track.<a href="#">click here</a></p>
+                           </div>
+                       </div>
+
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                       <div class="card col-xs-12 col-md-12" >
+                           <img class="card-img-top" src="https://cdn.wallpapersafari.com/8/39/50Fdz7.jpg"
+                               height=250px; alt="abc">
+                           <div class="card-body">
+                               <h3 class="card-title">Are you a Heart patient? </h3>
+                               <p class="card-text">You need not to worry because we have the solution for your problem.so you are on right track.<a href="#">click here</a></p>
+                           </div>
+                       </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--previous and next buttons-->
+            <a class="carousel-control-prev " href="#card" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#card" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+
+    <!--fourthdiv on consultation records-->
+    <div class="container-fluid bodyLower" style="background-color: #f1f1f1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 py-4">
+                    <img src="https://images.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn1.iconfinder.com%2Fdata%2Ficons%2Fbusiness-257%2F100%2Fbusiness-01-512.png&f=1" alt="report-img"
+                    class="img-responsive" height="400px" width="200px">
+                </div>
+                <div class="col-md-7 text-dark">
+                    <h2><strong>All your report and consulting <br>
+                        history secured in one place</strong></h2>
+                    <h4>
+                        <ul style="list-style-type: none">
+                          <li> <i class="glyphicon glyphicon-ok"></i> Records are accessible by you only</li>
+                          <li> <i class="glyphicon glyphicon-ok"></i> 256 bit end to end encryption</li>
+                          <li> <i class="glyphicon glyphicon-ok"></i> Access your records anytime anywhere</li>
+                        </ul>
+                    </h4>
+                    <button type="submit" class="btn btn-success ">more</button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--javascriptcdn goes here-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script
+       src="https://code.jquery.com/jquery-3.3.1.min.js"
+       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+       crossorigin="anonymous"></script>
+
+    <!-- native script link-->
+    <script src="{% static 'MeetMyExpert/js/indexScript.js' %}"></script>
+{% endblock %}
+
+
+
+
+
+
+

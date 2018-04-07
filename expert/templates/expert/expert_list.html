@@ -1,0 +1,169 @@
+{% extends 'expert/expert_base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% load easy_thumbnails_tags %}
+ {% block headcontent %}
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'MeetMyExpert/expert/css/expert_list.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ {% endblock %}
+
+{% block content %}
+    <div class="bodysecondary">
+        <!--space between headers-->
+        <div class="space" style="height:0.3rem; "></div>
+
+        <!-- bottom and last header-->
+        <div class="bottomHeader container-fluid">
+        <div class="row  text-light py-1">
+            <div class="col-md-4 col-xs-12 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-home"></i>Expert in</h4></a>
+            </div>
+            <div class="col-md-4 col-xs-12 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-user"></i>All Filters </h4></a>
+            </div>
+            <div class="col-md-4 col-xs-12 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-education"></i>Sort By</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+        <div class="container-fluid">
+             <div class="row">
+                  <div class="col-md-3 col-sm-4 col-xs-0">
+                      <h3 class="" style="text-align: center">All Filters</h3>
+                      <hr>
+                      <!--Accordian data -->
+                      <div class="panel-group" id="accordion">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#faq1"style="text-decoration:none" >
+                            <i class="glyphicon glyphicon-play"></i> Department</a>
+                          </h3>
+                        </div>
+                        <div id="faq1" class="panel-collapse collapse ">      <!-- use js to hide this-->
+                          <div class="panel-body">
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Agriculture'%}">Agriculture</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Automotive'%}">Automotive</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Business'%}">Business</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Career'%}">Career</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Education'%}">Education</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Finance'%}">Finance</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Fitness'%}">Fitness</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Health'%}">Health</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Legal'%}">legal</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Lifestyle'%}">Lifestyle</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='RealEstate'%}">Real estate</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Spiritual'%}">Spiritual</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Technology'%}">Technology</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='Travels'%}">Travels</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertdepartmentlistpage' department='others'%}">Others</a></p><hr>
+                          </div>
+                        </div>
+                    </div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#faq2">
+                            <i class="glyphicon glyphicon-play"></i> profession</a>
+                          </h3>
+                        </div>
+                        <div id="faq2" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <p style="text-align: center"><a href="{% url 'expert:expertsprofessionlistpage' profession='Engineer'%}">Engineer</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertsprofessionlistpage' profession='Doctor'%}">Doctor</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertsprofessionlistpage' profession='Lawyer'%}">Lawyer</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertsprofessionlistpage' profession='MBA'%}">MBA</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertsprofessionlistpage' profession='Professor'%}">Professor</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertsprofessionlistpage' profession='Businessman'%}">Businessman</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertsprofessionlistpage' profession='Athlete'%}">Athlete</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertsprofessionlistpage' profession='Actor'%}">Actor</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertsprofessionlistpage' profession='Consultant'%}">Consultant</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertsprofessionlistpage' profession='Spiritualist'%}">Spiritualist</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertsprofessionlistpage' profession='others'%}">others</a></p><hr>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#faq3">
+                            <i class="glyphicon glyphicon-play"></i>Appointment Fee</a>
+                          </h3>
+                        </div>
+                        <div id="faq3" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <p style="text-align: center"><a href="{% url 'expert:expertappointmentfeelistpage' minimum=0 maximum=100 %}">Rs 0 - 100</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertappointmentfeelistpage' minimum=100 maximum=200 %}">Rs 100 - 200</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertappointmentfeelistpage' minimum=200 maximum=300 %}">Rs 200 - 300</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertappointmentfeelistpage' minimum=300 maximum=400 %}">Rs 300 - 400</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertappointmentfeelistpage' minimum=400 maximum=500 %}">Rs 400 - 500</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertappointmentfeelistpage' minimum=500 maximum=600 %}">Rs 500 - 600</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertappointmentfeelistpage' minimum=600 maximum=700 %}">Rs 600 - 700</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertappointmentfeelistpage' minimum=700 maximum=800 %}">Rs 700 - 800</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertappointmentfeelistpage' minimum=800 maximum=900 %}">Rs 800 - 900</a></p><hr>
+                              <p style="text-align: center"><a href="{% url 'expert:expertappointmentfeelistpage' minimum=1000 maximum=10000 %}">Rs 1000 - more</a></p><hr>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+
+
+                  </div>
+                  <div class="col-md-7 col-sm-8 col-xs-12 ">
+                   <div class="container-fluid px-3">
+                       {% for expert in expert_list %}
+                        <div class="container-fluid row mt-5 mx-0 px-0  text-dark  ">
+
+                                 <table class="table bg-light" style="border: 0.5px solid gray">
+                <tr>
+                    <td>
+
+                       <img src="{% thumbnail expert.profile_pic 450x450 %}"
+                         class="img-fluid mt-3" alt="profile_pic" height="150px" width="120px">
+
+                    </td>
+                    <td>
+                        <p>{{ expert.profile_name }}( <span class="text-primary">{{ expert.profession }}</span>)<br>
+                        {{ expert.achievements }}<br>
+                        11 years Experience<br>
+                        {{ expert.department }}<br><br>
+                        {{ expert.address }}</p>
+                        <p>MME ID:{{ expert.mme_id }}<br>
+                            <a href="{% url 'experts:expertsdetailpage' pk=expert.pk %}"> view profile</a>
+                         </p>
+                    </td>
+                    <td>
+                            <i class="material-icons">thumb_up</i>({{ expert.user_feedback.count }})likes <br>
+                           <i class="material-icons">chat</i> <a href="#">{{ expert.user_feedback.count }} feedback</a><br>
+                            <i class="material-icons">location_on</i>{{ expert.address }}<br>
+                            <i class="material-icons">euro_symbol</i>Rs: {{ expert.appointment_fee }}<br><br>
+
+                            <button type="submit" class="btn btn-primary disabled btn-sm ">Book Appointment</button>
+                            <div  style="height:2px"></div>
+                            <button type="submit" class="btn btn-primary btn-sm ">Book Consultation</button>
+                    </td>
+                </tr>
+                </table>
+
+                        </div>
+                   {% endfor %}
+                   </div>
+             </div>
+                  <div class="col-md-2 col-sm-0 col-xs-0"></div>
+             </div>
+        </div>
+
+    <!--javascriptcdn goes here-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+{% endblock %}
+
+
+

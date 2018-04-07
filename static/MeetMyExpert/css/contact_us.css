@@ -1,0 +1,16 @@
+.topHeader,.bottomHeader,.footer,.bottomHeaderSm{
+    background-color: #F44336;
+}
+.footer a,.footer ,a:hover {
+    color:white;
+    text-decoration: none;
+}
+
+td{
+    width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.bottomHeader,.bottomHeaderSm{
+    margin-top: 60px;
+}

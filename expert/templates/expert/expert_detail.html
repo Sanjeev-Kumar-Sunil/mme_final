@@ -1,0 +1,154 @@
+{% extends 'expert/expert_base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% load easy_thumbnails_tags %}
+{% load bootstrap3 %}
+{% block headcontent %}
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="{% static 'MeetMyExpert/expert/css/expert_detail.css' %}">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% endblock %}
+
+{% block content %}
+    <div class="secondarybody">
+      <!--space between headers-->
+     <div class="space" style="height:0.3rem; "></div>
+
+      <!-- bottom and last header-->
+      <div class="bottomHeader container-fluid mb-1">
+        <div class="row  text-light py-1">
+            <div class="col-md-3 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-home"></i>HOME</h4></a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <a href="{% url 'experts:expertslistpage' %}" class="text-light"><h4><i class="glyphicon glyphicon-user"></i>FIND AN EXPERT </h4></a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-education"></i>BECOME AN EXPERT</h4>
+                </a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <span><h4><i class="glyphicon glyphicon-search"></i><input type="search" class="text-dark form-control ml-2" placeholder="SEARCH"
+                style="width:90%;display: inline"></h4></span>
+            </div>
+        </div>
+    </div>
+        <div class="space" style="height:1.3rem; "></div>
+      <!--bottom header for small screen-->
+      <div class="container-fluid px-0">
+            <table class="bottomHeaderSm mx-0">
+                <tr>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-home "></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-user "></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-education"></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-search"></i></h2></a></td>
+                </tr>
+            </table>
+      </div>
+
+      <!--expert basic info -->
+      <div class="container-fluid row ">
+       <div class="col-md-2 col-sm-0"></div>
+       <div class="col-md-8 bg-light  " style="border: 0.5px solid rgba(143,143,143,0.36)">
+           <div class="row">
+               <div class="col-xs-12 col-sm-3" >
+                   <img src="{% thumbnail expert.profile_pic 450x450 %}"
+                         class="img-fluid mt-3" alt="profile_pic" height="200" width="150">
+               </div>
+               <div class="col-xs-12 col-sm-9" >
+                   <h2>{{ expert.profile_name }}<h6 class="text-secondary">Profile is Verified</h6><br></h2>
+                   <p>Department:<span class="text-secondary">{{ expert.department }}</span><br>
+                       {{ expert.achievements }}
+                   </p>
+                   <p>
+                       Linkedin Profile:<a href="{{ expert.linkedin_Profile }}"><span class="text-secondary">&nbsp;click here</span></a><br>
+                        Consultation Fee:<span class="text-secondary">&nbsp;Rs {{ expert.appointment_fee }}</span><br><br>
+                   </p>
+                   <p>{{ expert.about }}
+                       <a href="#" class="text-primary">more..</a>
+                   </p>
+
+               </div>
+           </div>
+       </div>
+       <div class="col-md-2 col-sm-0"></div>
+   </div>
+
+      <!--address-->
+      <div class="container-fluid my-1 row ">
+        <div class="col-md-2 col-sm-0"></div>
+        <div class="col-md-8 bg-light">
+            <h2>Consulting place and address</h2><hr>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3">
+                    <p>{{ expert.address }}</p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <p><strong>Linkedin:</strong>{{ expert.linkedin_Profile }}</p>
+                    <p><strong>Email Id::</strong>{{ expert.emailid }}</p>
+                    <p><strong>Appointment Fee:</strong>{{ expert.appointment_fee }}</p>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <p class="text-primary"> MMEID:<span class="text-secondary">&nbsp;{{ expert.mme_id }}</span></p>
+                    <p>Practo Guarenteed<br>
+                        Appointiment</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row pb-3">
+                    <div class="col-sm-4 col-xs-6">
+                        <a href="#" class="btn btn-primary">Book Consultation</a>
+                    </div>
+                    <div class="col-sm-4 col-xs-6">
+                        <a href="#" class="btn btn-primary">Book Appointment</a>
+                    </div>
+                    <div class="col-sm-4 col-xs-6">
+                        <a class="btn btn-primary" href="{% url 'expert:add_feedback_to_expert' pk=expert.pk%}">Give Feedback</a>
+                    </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-0"></div>
+   </div>
+
+      <!-- feedback -->
+      <div class="container-fluid my-1 row">
+       <div class="col-md-2 col-sm-0"></div>
+       <div class="col-md-8  bg-light">
+           <table class="table">
+               <tr><th colspan="3"><h2>Feedback</h2></th></tr>
+               {% for feedback in expert.feedbacks.all  %}
+               <tr>
+                   <td><h1>V</h1>
+                    {{ feedback.user }}</td>
+                   <td>On {{ feedback.created_date }}<br>
+                       <h4><b>{{ feedback.title }}</b></h4>
+                       <p>Thanks to {{ feedback.expert.profile_name }}</p>
+                       <p>{{ feedback.description }}</p>
+
+                   </td>
+               </tr>
+               {% endfor %}
+
+               <tr>     <!-- button for expanding more feedback-->
+                   <td colspan="3">
+                       <input type="submit" value="more" class="btn btn-primary pull-right">
+                   </td>
+               </tr>
+
+           </table>
+       </div>
+       <div class="col-md-2 col-sm-0"></div>
+   </div>
+    </div>
+
+      <!--javascriptcdn goes here-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <script src="{% static 'MeetMyExpert/expert/js/expert_detail.js' %}"></script>
+
+{% endblock %}
+
+

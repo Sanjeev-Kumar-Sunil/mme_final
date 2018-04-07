@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap3 %}
+ {% block headcontent %}
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="{% static 'MeetMyExpert/css/contact_us.css' %}">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+ {% endblock %}
+
+{% block content %}
+
+    <div class="space" style="height:0.3rem; "></div>
+     <!-- bottom and last header-->
+    <div class="bottomHeader container-fluid ">
+        <div class="row  text-light py-1">
+            <div class="col-md-3 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-home"></i>HOME</h4></a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <a href="{% url 'experts:expertslistpage' %}" class="text-light"><h4><i class="glyphicon glyphicon-user"></i>FIND AN EXPERT </h4></a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-education"></i>BECOME AN EXPERT</h4>
+                </a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <span><h4><i class="glyphicon glyphicon-search"></i><input type="search" class="text-dark form-control ml-2" placeholder="SEARCH"
+                style="width:90%;display: inline"></h4></span>
+            </div>
+        </div>
+    </div>
+
+    <!--bottom header for small screen-->
+    <div class="bottomHeadersec container-fluid px-0">
+            <table class="bottomHeaderSm mx-0">
+                <tr>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-home "></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-user "></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-education"></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-search"></i></h2></a></td>
+                </tr>
+            </table>
+        </div>
+    <div class="container-fluid row" style="background-color: #f1f1f1">
+            <div class="col-sm-2 col-xs-0"></div>
+            <div class="col-sm-4 col-xs-12">
+                <h2>Meet My Expert</h2>
+                <h4 class="text-secondary">A Startup By Young Entrepreneures <br>
+                                IIITDM Kurnool A.P.
+                            </h4>
+                E-Mail Id : coe16b026@iiitk.ac.in<br>
+                Mob No. : 8608311111
+
+            </div>
+            <div class="col-sm-4 col-xs-12" style="background-color: white">
+                {% if  data_sent %}
+                     <h3>Thank you for sending us the mail</h3>
+                {% else %}
+                    <h2>Email Us</h2>
+                    <form method="post" >
+                         {% csrf_token %}
+                          {% bootstrap_form form %}
+                         <input type="submit" class="btn btn-primary" value="SEND">
+                    </form>
+                {% endif %}
+                <hr><hr>
+
+            </div>
+            <div class="col-sm-2 col-xs-0"></div>
+        </div>
+
+
+   <!--javascriptcdn goes here-->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+   <script src="{% static 'MeetMyExpert/js/indexScript.js' %}"></script>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+

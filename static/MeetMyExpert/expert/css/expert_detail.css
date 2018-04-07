@@ -1,0 +1,25 @@
+.topHeader,.bottomHeader,.footer,.bottomHeaderSm{
+    background-color: #F44336;
+}
+.bottomHeaderSm td{
+    width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.footer a,.footer p,table a,a:hover {
+    color:white;
+    text-decoration: none;
+}
+td{
+    margin-right: auto;
+    margin-left: auto;
+}
+a{
+    text-decoration: none;
+}
+.bottomHeader{
+    margin-top: 60px;
+}
+.bottomHeaderSm{
+    margin-top: 50px;
+}

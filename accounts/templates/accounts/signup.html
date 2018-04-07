@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+ {% block headcontent %}
+        <link rel="stylesheet" href="{% static '/MeetMyExpert/css/login.css' %}">
+
+ {% endblock %}
+
+{% block content %}
+<div class="container-fluid bodylogin" style="background-color: #f1f1f1">
+    <div class="container">
+         <div class="row">
+               <div class="col-xs-0 col-md-2">
+
+               </div>
+               <div class="col-xs-0 col-md-8 " style="background-color: #ffffff">
+                    <h1>Please enter your sign in details</h1>
+                    <form method="post">
+                         {% csrf_token %}
+                         {% bootstrap_form form %}
+                         <input type="submit" class="btn btn-default" value="Sign Up">
+                    </form>
+               </div>
+               <div class="col-xs-0 col-md-2">
+
+               </div>
+         </div>
+    </div>
+</div>
+{% endblock %}
+
+

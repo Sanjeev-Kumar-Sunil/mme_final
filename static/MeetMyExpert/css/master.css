@@ -1,0 +1,18 @@
+.topHeader,.bottomHeader,.footer{
+    background-color: #F44336;
+}
+.footer a,.footer p {
+    color:white;
+}
+.header_mid{
+    background-image:url("http://geeks.e-consulta.com/wp-content/uploads/2017/04/trabajo-en-equipo3-1000x620.png");
+    height:600px;
+    background-attachment:fixed ;
+}
+.mmeContainer{
+    max-width: 100%;
+}
+.bodyLower{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}

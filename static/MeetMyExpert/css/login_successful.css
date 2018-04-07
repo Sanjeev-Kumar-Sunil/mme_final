@@ -1,0 +1,46 @@
+a{
+    text-decoration: none;
+}
+mmeContainer a:hover{
+    color:green;
+}
+.bodyMiddle2{
+    background-color: #d1d1d1;
+}
+.bottomheadersec{
+    margin-top: 60px;
+}
+.carouselouter{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.bottomHeader,.bottomHeaderSm{
+    margin-top: 60px;
+}
+
+.bottomHeaderSm,.bottomHeaderSm>tr>td{
+    width:100%;
+}
+
+
+.topHeader,.bottomHeader,.footer,.bottomHeaderSm{
+    background-color: #F44336;
+}
+.footer a,.footer p,table a,a:hover {
+    color:white;
+    text-decoration: none;
+}
+
+.mmeContainer{
+    max-width: 100%;
+}
+
+
+td{
+    width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+

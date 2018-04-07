@@ -1,0 +1,41 @@
+.topHeader,.bottomHeader,.footer{
+    background-color: #F44336;
+}
+.expertListViewRow{
+    background-color: #c4fdec;
+}
+.footer a,.footer p {
+    color:white;
+}
+.profilePic,.profilePic>img{
+    max-width: 100px;
+    height:auto;
+}
+.workplacePics,.right{
+    list-style-type: none;
+}
+.right li{
+    display: block;
+}
+li{
+    display: inline-block;
+}
+.thumbnail{
+    width: 40px;
+    display: inline;
+}
+#footer li{
+    display:block;
+}
+
+.bottomHeader{
+    margin-top: 60px;
+}
+.Formcontainer{
+    background-color: #ffffff;
+
+}
+.bodysecondary{
+    background-color: #f1f1f1;
+
+}

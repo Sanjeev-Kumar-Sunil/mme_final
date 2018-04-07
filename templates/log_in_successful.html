@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+{% load static %}
+ {% block headcontent %}
+        <link rel="stylesheet" href="{% static 'MeetMyExpert/css/login_successful.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <!--java script-->
+        <script src="{% static 'MeetMyExpert/js/login_successful.js' %}"></script>
+
+ {% endblock %}
+
+{% block content %}
+
+   <!--spacing between headers-->
+    <div class="space" style="height:0.3rem; "></div>
+
+    <!-- bottom and last header-->
+    <div class="bottomHeader bottomheadersec container-fluid ">
+        <div class="row  text-light py-1 heading">
+            <div class="col-md-1 mx-auto"></div>
+            <div class="col-md-2  mx-auto">
+                <a href="{% url 'welcome' %}" class="text-light"><h4><i class="glyphicon glyphicon-home"></i><span class="home">HOME</span></h4></a>
+            </div>
+            <div class="col-md-2 mx-auto">
+                <a href="{% url 'experts:expertslistpage' %}" class="text-light"><h4><i class="glyphicon glyphicon-user"></i>FIND AN EXPERT </h4></a>
+            </div>
+            <div class="col-md-2 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-list-alt"></i>READ ARTICLE</h4>
+                </a>
+            </div>
+            <div class="col-md-2 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-align-justify"></i>DRIVE</h4>
+            </div>
+            <div class="col-md-2 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-bell"></i>NOTIFICATIONS</h4>
+                </a>
+            </div>
+            <div class="col-md-1 mx-auto"></div>
+        </div>
+    </div>
+
+     <!--bottom header for small screen-->
+     <div class="container-fluid px-0">
+            <table class="bottomHeaderSm mx-0">
+                <tr>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-home "></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-user "></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-list-alt"></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-align-justify"></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-bell"></i></h2></a></td>
+                </tr>
+            </table>
+        </div>
+
+    <!--body top showing features and pricing-->
+    <div class="container-fluid pl-5 py-5" style="background-color: #f1f1f1">
+        <div class="row">
+            <div class="col-md-7 " style="text-align: justify">
+                <h1><strong>Talk to an expert from anywhere</strong></h1>
+                    <h2 class="text-secondary">Call + Chat privately with a <br>
+                    verified expert by just <br>
+                    taking time slot with expert</h2>
+                    <h2 class="text-secondary">Fee starting at Rs.51 only.<br>
+                    Privacy guranteed.</h2>
+            </div>
+
+            <div class="col-md-5">
+                <img src="http://cdn.apk-cloud.com/detail/screenshot/6Z59NeaX0tZQWxquYlUV_IsVwcErtegFcSCtzPjDLRKOYHuoQ37zD0l_1hfNISFJDcBA=h900.png" alt="chat-img"
+                    class="img-responsive" height="400px" width="200px" >
+            </div>
+        </div>
+    </div>
+
+    <!--body middle1 showing how it works-->
+    <div class="container-fluid bg-primary">
+        <h1 style="text-align: center"><strong>How Does It Works?</strong></h1>
+        <div class="row ">
+            <div class="col-md-4 pb-5" style="border-right: 1px dotted background-color: #f1f1f1">
+                <h2 class="border bg-light text-dark mx-auto" style="width:3rem; text-align:center"><strong>1</strong></h2>
+                <p><h2>Explain your problem to expert.</h2></p>
+                <p><h3>You need not to worry. We verify each expert profile on sign up.All your data is private with us.</h3></p>
+            </div>
+            <div class="col-md-4" style="border-right: 1px dotted ">
+                <h2 class="border bg-light text-dark mx-auto" style="width:3rem; text-align:center"><strong>2</strong></h2>
+                <p><h2>You will be provided with time slot after appointment.</h2></p>
+                <p><h3>The expert will first read your writeup. Then he will talk to you by video/audio call or chat depending upon your preference.</h3> </p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="border bg-light text-dark mx-auto" style="width:3rem; text-align:center"><strong>3</strong></h2>
+                <p><h2>You will be provided with the best solution by expert in pdf format.</h2></p>
+                <p><h3>Once the expert listens your doubt, he will provide you the advice/suggestion in pdf format with his signature.</h3></p>
+            </div>
+        </div>
+    </div>
+
+    <!--body middle2 showing user reviews using carousel-->
+    <div class="container-fluid bodyMiddle2">
+        <!-- using carousel-->
+        <div id="card" class="carousel slide" data-ride="carousel" data-interval="2000" >
+
+            <!--dots below the image for navigation-->
+            <ul class="carousel-indicators">
+                <li data-target="#card" data-slide-to="0" class="active bg-secondary"></li>
+                <li data-target="#card" data-slide-to="1" class="bg-secondary"></li>
+                <li data-target="#card" data-slide-to="2" class="bg-secondary"></li>
+            </ul>
+
+
+            <!--data to be displayed in card form-->
+            <div class="carousel-inner carouselouter" >
+                <div class="carousel-item active" >
+                    <div  >
+                        <div  >
+                            <h1  style="text-align:center">The consultation on MeetMyExpert was really superb.</h1>
+                            <p class="card-text mx-auto"><h3 style="text-align:center">The Expert were also well qualified and highly recommended</h3></p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="carousel-item">
+                    <div  >
+                        <div  >
+                            <h1  style="text-align:center">The consultation on MeetMyExpert was really superb.</h1>
+                            <p class="card-text mx-auto"><h3 style="text-align:center">The Expert were also well qualified and highly recommended</h3></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div  >
+                        <div  >
+                            <h1  style="text-align:center">The consultation on MeetMyExpert was really superb.</h1>
+                            <p class="card-text mx-auto "><h3 style="text-align:center">The Expert were also well qualified and highly recommended</h3></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--previous and next buttons-->
+            <a class="carousel-control-prev" href="#card" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#card" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+
+    <!--body bottom1 showing info about mme app-->
+    <div class="container-fluid pl-5 py-5 bg-primary" >
+        <div class="row">
+            <!--image -->
+            <div class="col-md-5">
+                <img src="http://cdn.apk-cloud.com/detail/screenshot/6Z59NeaX0tZQWxquYlUV_IsVwcErtegFcSCtzPjDLRKOYHuoQ37zD0l_1hfNISFJDcBA=h900.png" alt="chat-img"
+                    class="img-responsive" height="400px" width="200px" >
+            </div>
+            <!-- text-->
+            <div class="col-md-7 " style="text-align: justify">
+                <h1><strong>Talk to an expert from anywhere</strong></h1>
+                    <h2 >Call + Chat privately with a <br>
+                    verified expert by just <br>
+                    taking time slot with expert</h2>
+                    <h2 >Fee starting at Rs.51 only.<br>
+                    Privacy guranteed.</h2>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- body bottom most showing FAQ using accordian-->
+    <div class="container-fluid" style="background-color: #f1f1f1">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 >Some common FAQs:</h1>
+
+                <!--Accordian data -->
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#faq1"style="text-decoration:none" >
+                            <i class="glyphicon glyphicon-play"></i> Are your Experts Qualified?</a>
+                          </h3>
+                        </div>
+                        <div id="faq1" class="panel-collapse collapse ">      <!-- use js to hide this-->
+                          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                          commodo consequat.</div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#faq2">
+                            <i class="glyphicon glyphicon-play"></i> Is consultation on mme private?</a>
+                          </h3>
+                        </div>
+                        <div id="faq2" class="panel-collapse collapse">
+                          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                          commodo consequat.</div>
+                        </div>
+                      </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#faq3">
+                            <i class="glyphicon glyphicon-play"></i>What`s your refund policy?</a>
+                          </h3>
+                        </div>
+                        <div id="faq3" class="panel-collapse collapse">
+                          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                          commodo consequat.</div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#faq4"style="text-decoration:none" >
+                            <i class="glyphicon glyphicon-play"></i>For how many days the consultation is valid
+                            once the fee is paid?</a>
+                          </h3>
+                        </div>
+                        <div id="faq4" class="panel-collapse collapse">
+                          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                          commodo consequat.</div>
+                        </div>
+              </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#faq5"style="text-decoration:none" >
+                            <i class="glyphicon glyphicon-play"></i> How much do you charge for consultation?</a>
+                          </h3>
+                        </div>
+                        <div id="faq5" class="panel-collapse collapse">
+                          <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                          commodo consequat.</div>
+                        </div>
+              </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+            <img src="http://3rbilliard.com/wp-content/uploads/2014/04/FAQ.png" alt="faq image" class="img-resposnive"
+            height="300px">
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

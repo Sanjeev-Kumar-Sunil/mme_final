@@ -1,0 +1,136 @@
+{% extends 'expert/expert_base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% load easy_thumbnails_tags %}
+{% load bootstrap3 %}
+{% block headcontent %}
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="stylesheet" href="{% static 'MeetMyExpert/expert/css/expert_detail.css' %}">
+       <link rel="stylesheet" href="{% static 'MeetMyExpert/blog/css/post_detail.css' %}">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block content %}
+    <div class="secondarybody">
+        <!--space between headers-->
+        <div class="space" style="height:0.3rem; "></div>
+
+        <!-- bottom and last header-->
+        <div class="bottomHeader container-fluid mb-1">
+        <div class="row  text-light py-1">
+            <div class="col-md-3 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-home"></i>HOME</h4></a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <a href="{% url 'experts:expertslistpage' %}" class="text-light"><h4><i class="glyphicon glyphicon-user"></i>FIND AN EXPERT </h4></a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <a href="#" class="text-light"><h4><i class="glyphicon glyphicon-education"></i>BECOME AN EXPERT</h4>
+                </a>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <span><h4><i class="glyphicon glyphicon-search"></i><input type="search" class="text-dark form-control ml-2" placeholder="SEARCH"
+                style="width:90%;display: inline"></h4></span>
+            </div>
+        </div>
+    </div>
+        <div class="space" style="height:1.3rem; "></div>
+        <!--bottom header for small screen-->
+        <div class="container-fluid px-0">
+            <table class="bottomHeaderSm mx-0">
+                <tr>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-home "></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-user "></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-education"></i></h2></a></td>
+                    <td class="text-center text-light"><a href="#"><h2><i class="glyphicon glyphicon-search"></i></h2></a></td>
+                </tr>
+            </table>
+      </div>
+        <!-- blog goes here-->
+        <div class="container-fluid row " style="background-color: #f1f1f1">
+            <div class="col-md-2 col-sm-0">
+            </div>
+            <div class="col-md-8 col-sm-12 bg-light">
+                <div class="container-fluid text-center px-0">
+                    <h5 class="text-danger "><b>{{ post.department }}</b></h5>
+                    <h1 >{{ post.post_title }}</h1>
+					<hr>
+                    <h5 class="text-danger text-right">By {{ post.author }} | {{ post.published_date }} </h5>
+					<hr>
+                     <img  width="100%" height="100%"  src="{% thumbnail post.post_pic 800x800 %}"
+                           class="img-fluid mt-3" alt="profile_pic"  >
+
+                </div>
+                <br>
+
+
+                <!--summary of blog-->
+                <div class="summary ">
+                    <p >
+                        {{ post.summary }}
+                    </p>
+                </div>
+                <!-- details of blog-->
+                <div class="container-fluid" style="font-size:130%; font-family: PT Serif,Georgia,Times,serif;">
+
+                    <br>
+
+                     <p>
+                         {{ post.content }}
+                     </p>
+                </div>
+
+            </div>
+            <div class="col-md-2 col-sm-0"></div>
+        </div>
+
+        <!-- comments -->
+        <div class="container-fluid my-1 row" style="background-color: #f1f1f1">
+            <div class="col-md-2 col-sm-0"></div>
+            <div class="col-md-8  bg-light">
+               <table class="table">
+                   <tr><th colspan="3"><h2>Comments</h2></th></tr>
+                   {% for comment in post.comments_and_likes.all %}
+                       <tr style="" >
+                           <td><h1>V</h1>{{ comment.user }}</td>
+                            <td>On {{ comment.commented_date }}<br>
+                                <h5><strong>{{ comment.comment_title }}</strong></h5>
+                                 <p>
+                                    {{ comment.description }}
+                                 </p>
+                            </td>
+                       </tr>
+                   {% endfor %}
+
+
+                   <tr>     <!-- button for expanding more feedback-->
+                       <td colspan="3">
+                           <a class="btn btn-primary" href="{% url 'blog:add_comment_to_post' pk=post.pk%}">Any Commnents!</a>
+                       </td>
+                   </tr>
+
+               </table>
+            </div>
+            <div class="col-md-2 col-sm-0"></div>
+        </div>
+    </div>
+
+      <!--javascriptcdn goes here-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+      <script src="{% static 'MeetMyExpert/expert/js/expert_detail.js' %}"></script>
+
+{% endblock %}
+
+
+
+

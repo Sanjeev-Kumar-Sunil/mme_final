@@ -1,0 +1,29 @@
+.topHeader,.bottomHeader,.footer,.bottomHeaderSm{
+    background-color: #F44336;
+}
+.footer a,.footer p,table a,a:hover {
+    color:white;
+    text-decoration: none;
+}
+.bottomHeaderSm td{
+    width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+ td{
+    margin-right: auto;
+    margin-left: auto;
+    width: auto;
+}
+ .summary{
+     color: #11159a;
+     background-color: #f4f4f4;
+     padding:3px;
+     border-bottom: 1px solid gray;
+
+     font-size:140%;
+     font-family: PT Serif,Georgia,Times,serif;
+ }
+.bodysecondary{
+    background-color: #f1f1f1;
+}
